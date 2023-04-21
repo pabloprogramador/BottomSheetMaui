@@ -78,6 +78,9 @@ public partial class CustomDrawer : Grid
         this.IsVisible = true;
         if (isfirst) return;
 
+#if ANDROID
+        await Task.Delay(100);
+#endif
         double height = screenHeight - Math.Max(pgContentScroll.Height + 32, headHeight);
         height = Math.Max(height, 0);
 
