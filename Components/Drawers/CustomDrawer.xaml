@@ -7,12 +7,12 @@
     <ImageButton x:Name="pgBackground" BackgroundColor="Black" Opacity=".3" Clicked="pgBackground_Clicked"/>
 
     <Grid x:Name="pgBottomSheet">
-        <Border x:Name="pgBottomSheetBorder" StrokeThickness="0" BackgroundColor="White" StrokeShape="RoundRectangle 24,24,0,0" Padding="0,16">
+        <Border x:Name="pgBottomSheetBorder" Stroke="White" BackgroundColor="White" StrokeShape="RoundRectangle 24,24,0,0" Padding="0,16">
         </Border>
         <Grid RowDefinitions="32,*">
 
             <Rectangle WidthRequest="40" HeightRequest="4" BackgroundColor="#E8E8E8"/>
-
+            
             <ScrollView x:Name="pgContentScroll" Grid.Row="1" VerticalOptions="Start" BackgroundColor="Blue">
                 <Grid Margin="16,0"  x:Name="pgContent" BackgroundColor="Yellow" />
             </ScrollView>

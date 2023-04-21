@@ -34,6 +34,7 @@ public partial class CustomDrawer : Grid
         set { base.SetValue(IsOpenProperty, value); }
     }
 
+    double sizeScroll;
     double screenWidth;
     double screenHeight;
     double y;
@@ -81,6 +82,7 @@ public partial class CustomDrawer : Grid
 #if ANDROID
         await Task.Delay(100);
 #endif
+        sizeScroll = pgContentScroll.Height;
         double height = screenHeight - Math.Max(pgContentScroll.Height + 32, headHeight);
         height = Math.Max(height, 0);
 
@@ -111,6 +113,7 @@ public partial class CustomDrawer : Grid
         };
         pgBackground.FadeTo(0, 500);
         await pgBottomSheet.TranslateTo(0, screenHeight + 50, 500, Easing.CubicOut);
+        pgContentScroll.HeightRequest = sizeScroll;
         this.IsVisible = false;
     }
 
