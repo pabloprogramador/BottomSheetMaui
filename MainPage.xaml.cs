@@ -2,24 +2,29 @@
 
 public partial class MainPage : ContentPage
 {
-	int count = 0;
+    int count = 0;
 
-	public MainPage()
-	{
-		InitializeComponent();
-	}
+    public MainPage()
+    {
+        InitializeComponent();
+    }
 
-	private void OnCounterClicked(object sender, EventArgs e)
-	{
-		count++;
 
-		if (count == 1)
-			CounterBtn.Text = $"Clicked {count} time";
-		else
-			CounterBtn.Text = $"Clicked {count} times";
 
-		SemanticScreenReader.Announce(CounterBtn.Text);
-	}
+    void Button_Clicked_1(System.Object sender, System.EventArgs e)
+    {
+        pgDrawerSmart.IsOpen = true;
+    }
+
+    void Button_Clicked_2(System.Object sender, System.EventArgs e)
+    {
+        pgDrawerNormal.IsOpen = true;
+    }
+
+    void Button_Clicked_3(System.Object sender, System.EventArgs e)
+    {
+        pgDrawerBig.IsOpen = true;
+    }
 }
 
 

@@ -1,42 +1,125 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:drawers="clr-namespace:BottomSheet.Components.Drawers"
              x:Class="BottomSheet.MainPage">
-
-    <ScrollView>
-        <VerticalStackLayout
+    <Grid BackgroundColor="#b2c2ba">
+        <ScrollView>
+            <VerticalStackLayout
             Spacing="25"
             Padding="30,0"
             VerticalOptions="Center">
 
-            <Image
+                <Image
                 Source="dotnet_bot.png"
                 SemanticProperties.Description="Cute dot net bot waving hi to you!"
                 HeightRequest="200"
                 HorizontalOptions="Center" />
 
-            <Label
+                <Label
                 Text="Hello, World!"
                 SemanticProperties.HeadingLevel="Level1"
                 FontSize="32"
                 HorizontalOptions="Center" />
 
-            <Label
+                <Label
                 Text="Welcome to .NET Multi-platform App UI"
                 SemanticProperties.HeadingLevel="Level2"
                 SemanticProperties.Description="Welcome to dot net Multi platform App U I"
                 FontSize="18"
                 HorizontalOptions="Center" />
 
-            <Button
-                x:Name="CounterBtn"
-                Text="Click me"
-                SemanticProperties.Hint="Counts the number of times you click"
-                Clicked="OnCounterClicked"
+                <Button
+                Text="OPEN SMART BOTTOMSHEET"
+                Clicked="Button_Clicked_1"
                 HorizontalOptions="Center" />
 
-        </VerticalStackLayout>
-    </ScrollView>
+                <Button
+                Text="OPEN NORMAL BOTTOMSHEET"
+                Clicked="Button_Clicked_2"
+                HorizontalOptions="Center" />
 
+                <Button
+                Text="OPEN BIG BOTTOMSHEET"
+                Clicked="Button_Clicked_3"
+                HorizontalOptions="Center" />
+
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <drawers:CustomDrawer x:Name="pgDrawerSmart">
+            <VerticalStackLayout Spacing="10">
+                <Label Text="item 1" BackgroundColor="AliceBlue" Padding="5" />
+                <Label Text="item 2" BackgroundColor="AliceBlue" Padding="5" />
+            </VerticalStackLayout>
+        </drawers:CustomDrawer>
+
+        <drawers:CustomDrawer x:Name="pgDrawerNormal">
+            <VerticalStackLayout Spacing="10">
+
+                <Label Text="Homem de Ferro" BackgroundColor="AliceBlue" Padding="5" />
+                <Label Text="Batman" BackgroundColor="AliceBlue" Padding="5" />
+                <Label Text="Superman" BackgroundColor="AliceBlue" Padding="5" />
+                <Label Text="Mulher-Maravilha" BackgroundColor="AliceBlue" Padding="5" />
+                <Label Text="Hulk" BackgroundColor="AliceBlue" Padding="5" />
+                <Label Text="Capitão América" BackgroundColor="AliceBlue" Padding="5" />
+                <Label Text="Thor" BackgroundColor="AliceBlue" Padding="5" />
+                <Label Text="Flash" BackgroundColor="AliceBlue" Padding="5" />
+                <Label Text="Lanterna Verde" BackgroundColor="AliceBlue" Padding="5" />
+                <Label Text="Pantera Negra" BackgroundColor="AliceBlue" Padding="5" />
+                <Label Text="Homem de Ferro" BackgroundColor="AliceBlue" Padding="5" />
+                <Label Text="Batman" BackgroundColor="AliceBlue" Padding="5" />
+                <Label Text="Superman" BackgroundColor="AliceBlue" Padding="5" />
+     
+            </VerticalStackLayout>
+        </drawers:CustomDrawer>
+
+        <drawers:CustomDrawer x:Name="pgDrawerBig">
+            <VerticalStackLayout Spacing="10">
+
+                <Label Text="Homem de Ferro" BackgroundColor="AliceBlue" Padding="5" />
+                <Label Text="Batman" BackgroundColor="AliceBlue" Padding="5" />
+                <Label Text="Superman" BackgroundColor="AliceBlue" Padding="5" />
+                <Label Text="Mulher-Maravilha" BackgroundColor="AliceBlue" Padding="5" />
+                <Label Text="Hulk" BackgroundColor="AliceBlue" Padding="5" />
+                <Label Text="Capitão América" BackgroundColor="AliceBlue" Padding="5" />
+                <Label Text="Thor" BackgroundColor="AliceBlue" Padding="5" />
+                <Label Text="Flash" BackgroundColor="AliceBlue" Padding="5" />
+                <Label Text="Lanterna Verde" BackgroundColor="AliceBlue" Padding="5" />
+                <Label Text="Pantera Negra" BackgroundColor="AliceBlue" Padding="5" />
+                <Label Text="Homem de Ferro" BackgroundColor="AliceBlue" Padding="5" />
+                <Label Text="Batman" BackgroundColor="AliceBlue" Padding="5" />
+                <Label Text="Superman" BackgroundColor="AliceBlue" Padding="5" />
+                <Label Text="Mulher-Maravilha" BackgroundColor="AliceBlue" Padding="5" />
+                <Label Text="Hulk" BackgroundColor="AliceBlue" Padding="5" />
+                <Label Text="Capitão América" BackgroundColor="AliceBlue" Padding="5" />
+                <Label Text="Thor" BackgroundColor="AliceBlue" Padding="5" />
+                <Label Text="Flash" BackgroundColor="AliceBlue" Padding="5" />
+                <Label Text="Lanterna Verde" BackgroundColor="AliceBlue" Padding="5" />
+                <Label Text="Pantera Negra" BackgroundColor="AliceBlue" Padding="5" />
+                <Label Text="Homem de Ferro" BackgroundColor="AliceBlue" Padding="5" />
+                <Label Text="Batman" BackgroundColor="AliceBlue" Padding="5" />
+                <Label Text="Superman" BackgroundColor="AliceBlue" Padding="5" />
+                <Label Text="Mulher-Maravilha" BackgroundColor="AliceBlue" Padding="5" />
+                <Label Text="Hulk" BackgroundColor="AliceBlue" Padding="5" />
+                <Label Text="Capitão América" BackgroundColor="AliceBlue" Padding="5" />
+                <Label Text="Thor" BackgroundColor="AliceBlue" Padding="5" />
+                <Label Text="Flash" BackgroundColor="AliceBlue" Padding="5" />
+                <Label Text="Lanterna Verde" BackgroundColor="AliceBlue" Padding="5" />
+                <Label Text="Pantera Negra" BackgroundColor="AliceBlue" Padding="5" />
+                <Label Text="Homem de Ferro" BackgroundColor="AliceBlue" Padding="5" />
+                <Label Text="Batman" BackgroundColor="AliceBlue" Padding="5" />
+                <Label Text="Superman" BackgroundColor="AliceBlue" Padding="5" />
+                <Label Text="Mulher-Maravilha" BackgroundColor="AliceBlue" Padding="5" />
+                <Label Text="Hulk" BackgroundColor="AliceBlue" Padding="5" />
+                <Label Text="Capitão América" BackgroundColor="AliceBlue" Padding="5" />
+                <Label Text="Thor" BackgroundColor="AliceBlue" Padding="5" />
+                <Label Text="Flash" BackgroundColor="AliceBlue" Padding="5" />
+                <Label Text="Lanterna Verde" BackgroundColor="AliceBlue" Padding="5" />
+                <Label Text="Pantera Negra" BackgroundColor="AliceBlue" Padding="5" />
+            </VerticalStackLayout>
+        </drawers:CustomDrawer>
+
+    </Grid>
 </ContentPage>
 
