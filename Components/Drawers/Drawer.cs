@@ -4,7 +4,7 @@ namespace BottomSheet.Components.Drawers
     public static class Drawer
     {
         private static BaseDrawer _view;
-        private static Grid _root;
+        private static Grid _root = new Grid();
         private static ContentPage _contentPage;
         private static View _cache;
 
@@ -19,37 +19,19 @@ namespace BottomSheet.Components.Drawers
 
             _cache = _contentPage.Content;
 
-            if (_cache is Grid && _view != null && ((Grid)_cache).Children.Contains(_view))
+            if (_cache != _root)
             {
-                Grid oldGrid = (Grid)_cache;
-                oldGrid.Remove(_view);
-                _view = view;
-                oldGrid.Children.Add(_view);
-            }
-            else
-            {
-                _view = view;
-                var _root = new Grid()
-                    {
-                        _cache,
-                        _view
-                    };
                 _contentPage.Content = _root;
+                _root.Children.Add(_cache);
             }
-            
-            //_view.Init();
-            //while(_view.Height < 0)
-            //{
-            //await Task.Delay(100);
 
-            //System.Diagnostics.Debug.WriteLine(_view.Height);
-            //}
+            if (!((Grid)_cache).Children.Contains(view))
+            {
+                _root.Children.Add(view);
+            }
 
-            //System.Diagnostics.Debug.WriteLine(_view.Height);
-
-            _view.Open();
-            
-            
+            _view = view; 
+            _view.Open();           
         }
 
         public async static void Close()

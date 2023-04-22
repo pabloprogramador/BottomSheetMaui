@@ -13,7 +13,7 @@
 
             <Rectangle WidthRequest="40" HeightRequest="4" BackgroundColor="#E8E8E8"/>
             
-            <ScrollView  x:Name="pgContentScroll" Grid.Row="1" VerticalOptions="Start">
+            <ScrollView x:Name="pgContentScroll" Grid.Row="1" VerticalOptions="Start">
                 <Grid Margin="16,0"  x:Name="pgContent"/> 
             </ScrollView>
 
