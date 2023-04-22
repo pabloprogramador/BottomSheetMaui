@@ -47,78 +47,7 @@
             </VerticalStackLayout>
         </ScrollView>
 
-        <drawers:CustomDrawer x:Name="pgDrawerSmart">
-            <VerticalStackLayout Spacing="10">
-                <Label Text="item 1" BackgroundColor="AliceBlue" Padding="5" />
-                <Label Text="item 2" BackgroundColor="AliceBlue" Padding="5" />
-            </VerticalStackLayout>
-        </drawers:CustomDrawer>
-
-        <drawers:CustomDrawer x:Name="pgDrawerNormal">
-            <VerticalStackLayout Spacing="10">
-
-                <Label Text="Homem de Ferro" BackgroundColor="AliceBlue" Padding="5" />
-                <Label Text="Batman" BackgroundColor="AliceBlue" Padding="5" />
-                <Label Text="Superman" BackgroundColor="AliceBlue" Padding="5" />
-                <Label Text="Mulher-Maravilha" BackgroundColor="AliceBlue" Padding="5" />
-                <Label Text="Hulk" BackgroundColor="AliceBlue" Padding="5" />
-                <Label Text="Capitão América" BackgroundColor="AliceBlue" Padding="5" />
-                <Label Text="Thor" BackgroundColor="AliceBlue" Padding="5" />
-                <Label Text="Flash" BackgroundColor="AliceBlue" Padding="5" />
-                <Label Text="Lanterna Verde" BackgroundColor="AliceBlue" Padding="5" />
-                <Label Text="Pantera Negra" BackgroundColor="AliceBlue" Padding="5" />
-                <Label Text="Homem de Ferro" BackgroundColor="AliceBlue" Padding="5" />
-                <Label Text="Batman" BackgroundColor="AliceBlue" Padding="5" />
-                <Label Text="Superman" BackgroundColor="AliceBlue" Padding="5" />
-     
-            </VerticalStackLayout>
-        </drawers:CustomDrawer>
-
-        <drawers:CustomDrawer x:Name="pgDrawerBig">
-            <VerticalStackLayout Spacing="10">
-
-                <Label Text="Homem de Ferro" BackgroundColor="AliceBlue" Padding="5" />
-                <Label Text="Batman" BackgroundColor="AliceBlue" Padding="5" />
-                <Label Text="Superman" BackgroundColor="AliceBlue" Padding="5" />
-                <Label Text="Mulher-Maravilha" BackgroundColor="AliceBlue" Padding="5" />
-                <Label Text="Hulk" BackgroundColor="AliceBlue" Padding="5" />
-                <Label Text="Capitão América" BackgroundColor="AliceBlue" Padding="5" />
-                <Label Text="Thor" BackgroundColor="AliceBlue" Padding="5" />
-                <Label Text="Flash" BackgroundColor="AliceBlue" Padding="5" />
-                <Label Text="Lanterna Verde" BackgroundColor="AliceBlue" Padding="5" />
-                <Label Text="Pantera Negra" BackgroundColor="AliceBlue" Padding="5" />
-                <Label Text="Homem de Ferro" BackgroundColor="AliceBlue" Padding="5" />
-                <Label Text="Batman" BackgroundColor="AliceBlue" Padding="5" />
-                <Label Text="Superman" BackgroundColor="AliceBlue" Padding="5" />
-                <Label Text="Mulher-Maravilha" BackgroundColor="AliceBlue" Padding="5" />
-                <Label Text="Hulk" BackgroundColor="AliceBlue" Padding="5" />
-                <Label Text="Capitão América" BackgroundColor="AliceBlue" Padding="5" />
-                <Label Text="Thor" BackgroundColor="AliceBlue" Padding="5" />
-                <Label Text="Flash" BackgroundColor="AliceBlue" Padding="5" />
-                <Label Text="Lanterna Verde" BackgroundColor="AliceBlue" Padding="5" />
-                <Label Text="Pantera Negra" BackgroundColor="AliceBlue" Padding="5" />
-                <Label Text="Homem de Ferro" BackgroundColor="AliceBlue" Padding="5" />
-                <Label Text="Batman" BackgroundColor="AliceBlue" Padding="5" />
-                <Label Text="Superman" BackgroundColor="AliceBlue" Padding="5" />
-                <Label Text="Mulher-Maravilha" BackgroundColor="AliceBlue" Padding="5" />
-                <Label Text="Hulk" BackgroundColor="AliceBlue" Padding="5" />
-                <Label Text="Capitão América" BackgroundColor="AliceBlue" Padding="5" />
-                <Label Text="Thor" BackgroundColor="AliceBlue" Padding="5" />
-                <Label Text="Flash" BackgroundColor="AliceBlue" Padding="5" />
-                <Label Text="Lanterna Verde" BackgroundColor="AliceBlue" Padding="5" />
-                <Label Text="Pantera Negra" BackgroundColor="AliceBlue" Padding="5" />
-                <Label Text="Homem de Ferro" BackgroundColor="AliceBlue" Padding="5" />
-                <Label Text="Batman" BackgroundColor="AliceBlue" Padding="5" />
-                <Label Text="Superman" BackgroundColor="AliceBlue" Padding="5" />
-                <Label Text="Mulher-Maravilha" BackgroundColor="AliceBlue" Padding="5" />
-                <Label Text="Hulk" BackgroundColor="AliceBlue" Padding="5" />
-                <Label Text="Capitão América" BackgroundColor="AliceBlue" Padding="5" />
-                <Label Text="Thor" BackgroundColor="AliceBlue" Padding="5" />
-                <Label Text="Flash" BackgroundColor="AliceBlue" Padding="5" />
-                <Label Text="Lanterna Verde" BackgroundColor="AliceBlue" Padding="5" />
-                <Label Text="Pantera Negra" BackgroundColor="AliceBlue" Padding="5" />
-            </VerticalStackLayout>
-        </drawers:CustomDrawer>
+       
 
     </Grid>
 </ContentPage>

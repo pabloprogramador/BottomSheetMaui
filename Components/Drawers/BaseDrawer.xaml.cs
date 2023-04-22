@@ -3,37 +3,12 @@ using Microsoft.Maui.Controls.Shapes;
 
 namespace BottomSheet.Components.Drawers;
 
-public partial class CustomDrawer : Grid
+public partial class BaseDrawer : Grid
 {
-    public double BackgroundOpacity { get; set; } = .4;
-    public static readonly BindableProperty IsOpenProperty = BindableProperty.Create(
-            nameof(IsOpen),
-            typeof(bool),
-            typeof(CustomDrawer),
-            defaultValue: false,
-            defaultBindingMode: BindingMode.OneWay,
-            propertyChanged: IsOpenPropertyChanged);
+    public double BackgroundOpacity = .4;
+    public Command CallBack;
 
-    private static void IsOpenPropertyChanged(BindableObject bindable, object oldValue, object newValue)
-    {
-        var control = (CustomDrawer)bindable;
-
-        if ((bool)newValue)
-        {
-            control.Open();
-        }
-        else
-        {
-            control.Close();
-        }
-    }
-
-    public bool IsOpen
-    {
-        get { return (bool)base.GetValue(IsOpenProperty); }
-        set { base.SetValue(IsOpenProperty, value); }
-    }
-
+    bool isFirstCache;
     double sizeScroll;
     double screenWidth;
     double screenHeight;
@@ -41,21 +16,18 @@ public partial class CustomDrawer : Grid
     double headHeight = 280;
     double minFree = 40;
     bool isFull = false;
-    bool isfirst = true;
+    bool isFirst = true;
 
     protected override void OnSizeAllocated(double width, double height)
     {
         base.OnSizeAllocated(width, height);
         screenWidth = width;
         screenHeight = height;
-        isfirst = false;
-        if (IsOpen)
-            Open();
+        isFirst = false;
+        Open();
     }
 
-
-
-    public CustomDrawer()
+    public BaseDrawer()
     {
         InitializeComponent();
         this.IsVisible = false;
@@ -64,20 +36,20 @@ public partial class CustomDrawer : Grid
     protected async override void OnParentChanged()
     {
         base.OnParentChanged();
+        if (isFirstCache) return; isFirstCache = true;
         var cache = this.Children.Last();
         this.Remove(this.Children.Last());
         this.pgContent.Add(cache);
 
     }
 
-    async private void Open()
+    public async void Open()
     {
-
         pgBottomSheet.CancelAnimations();
         pgBottomSheet.TranslationY = screenHeight + 50;
         pgBackground.Opacity = 0;
         this.IsVisible = true;
-        if (isfirst) return;
+        if (isFirst) return;
 
 #if ANDROID
         await Task.Delay(100);
@@ -104,7 +76,7 @@ public partial class CustomDrawer : Grid
         }
     }
 
-    async private void Close()
+    public async Task Close()
     {
         pgBottomSheet.CancelAnimations();
         pgBottomSheetBorder.StrokeShape = new RoundRectangle
@@ -115,17 +87,17 @@ public partial class CustomDrawer : Grid
         await pgBottomSheet.TranslateTo(0, screenHeight + 50, 500, Easing.CubicOut);
         pgContentScroll.HeightRequest = sizeScroll;
         this.IsVisible = false;
+        if (CallBack != null)
+            CallBack.Execute(null);
     }
 
 
-
-
-    void ImageButton_Clicked(System.Object sender, System.EventArgs e)
+    public void ImageButton_Clicked(System.Object sender, System.EventArgs e)
     {
-        IsOpen = false;
+        Open();
     }
 
-    void PanGestureRecognizer_PanUpdated(System.Object sender, Microsoft.Maui.Controls.PanUpdatedEventArgs e)
+    public void PanGestureRecognizer_PanUpdated(System.Object sender, Microsoft.Maui.Controls.PanUpdatedEventArgs e)
     {
         switch (e.StatusType)
         {
@@ -140,8 +112,9 @@ public partial class CustomDrawer : Grid
         }
     }
 
-    void pgBackground_Clicked(System.Object sender, System.EventArgs e)
+    public void pgBackground_Clicked(System.Object sender, System.EventArgs e)
     {
-        IsOpen = false;
+        Close();
     }
+
 }

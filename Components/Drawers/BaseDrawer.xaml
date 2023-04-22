@@ -2,7 +2,7 @@
 <Grid xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
       IsVisible="false"
-             x:Class="BottomSheet.Components.Drawers.CustomDrawer">
+             x:Class="BottomSheet.Components.Drawers.BaseDrawer">
 
     <ImageButton x:Name="pgBackground" BackgroundColor="Black" Opacity=".3" Clicked="pgBackground_Clicked"/>
 
@@ -14,7 +14,7 @@
             <Rectangle WidthRequest="40" HeightRequest="4" BackgroundColor="#E8E8E8"/>
             
             <ScrollView x:Name="pgContentScroll" Grid.Row="1" VerticalOptions="Start" BackgroundColor="Blue">
-                <Grid Margin="16,0"  x:Name="pgContent" BackgroundColor="Yellow" />
+                <Grid Margin="16,0"  x:Name="pgContent" BackgroundColor="Yellow" /> 
             </ScrollView>
 
 
