@@ -1,42 +1,63 @@
 ﻿using System;
 namespace BottomSheet.Components.Drawers
 {
-	public static class Drawer
-	{
-		private static BaseDrawer _view;
+    public static class Drawer
+    {
+        private static BaseDrawer _view;
         private static Grid _root;
         private static ContentPage _contentPage;
         private static View _cache;
 
-		public static void Open(BaseDrawer view)
-		{
-			_view = view;
-			_contentPage = (ContentPage)App.Current.MainPage.GetCurrentContentPage();
+        public async static void Open(BaseDrawer view)
+        {
+            _contentPage = (ContentPage)App.Current.MainPage.GetCurrentContentPage();
             if (_contentPage == null)
             {
                 System.Diagnostics.Debug.WriteLine("#### DRAWER BOTTOMSHEET - NOT CONTENTPAGE FOUND");
                 return;
             }
-			_cache = _contentPage.Content;
-            _root = new Grid()
+
+            _cache = _contentPage.Content;
+
+            if (_cache is Grid && _view != null && ((Grid)_cache).Children.Contains(_view))
             {
-                _cache,
-                view
-            };
-            _contentPage.Content = _root;
+                Grid oldGrid = (Grid)_cache;
+                oldGrid.Remove(_view);
+                _view = view;
+                oldGrid.Children.Add(_view);
+            }
+            else
+            {
+                _view = view;
+                var _root = new Grid()
+                    {
+                        _cache,
+                        _view
+                    };
+                _contentPage.Content = _root;
+            }
+            
+            //_view.Init();
+            //while(_view.Height < 0)
+            //{
+            //await Task.Delay(100);
+
+            //System.Diagnostics.Debug.WriteLine(_view.Height);
+            //}
+
+            //System.Diagnostics.Debug.WriteLine(_view.Height);
+
             _view.Open();
-            _view.CallBack = new Command(() =>
-            {
-                _contentPage.Content = _cache;
-            });
-		}
+            
+            
+        }
 
         public async static void Close()
         {
             await _view.Close();
         }
 
-	}
+    }
 }
 
 

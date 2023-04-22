@@ -5,10 +5,15 @@
              x:Class="BottomSheet.Components.Drawers.ListDrawer">
     <VerticalStackLayout>
         <Label 
-            Text="DEU CERTO"
+            Text="TITLE"
+            FontSize="18"
+            Padding="15"
+            BackgroundColor="LightYellow"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
-        <Button Text="sair" Clicked="Button_Clicked"/>
+        <Button Text="CLOSE" Clicked="Button_Clicked"/>
+        <VerticalStackLayout x:Name="pgList">
+        </VerticalStackLayout>
     </VerticalStackLayout>
 </base:BaseDrawer>
 

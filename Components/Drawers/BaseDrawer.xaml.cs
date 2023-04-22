@@ -6,8 +6,7 @@ namespace BottomSheet.Components.Drawers;
 public partial class BaseDrawer : Grid
 {
     public double BackgroundOpacity = .4;
-    public Command CallBack;
-
+    
     bool isFirstCache;
     double sizeScroll;
     double screenWidth;
@@ -36,6 +35,7 @@ public partial class BaseDrawer : Grid
     protected async override void OnParentChanged()
     {
         base.OnParentChanged();
+        
         if (isFirstCache) return; isFirstCache = true;
         var cache = this.Children.Last();
         this.Remove(this.Children.Last());
@@ -51,13 +51,15 @@ public partial class BaseDrawer : Grid
         this.IsVisible = true;
         if (isFirst) return;
 
-#if ANDROID
-        await Task.Delay(100);
-#endif
+        while(pgContentScroll.Height < 0)
+        {
+            await Task.Delay(100);
+        }
+
         sizeScroll = pgContentScroll.Height;
         double height = screenHeight - Math.Max(pgContentScroll.Height + 32, headHeight);
         height = Math.Max(height, 0);
-
+        
         if (height == 0)
         {
             pgContentScroll.HeightRequest = screenHeight;
@@ -87,8 +89,6 @@ public partial class BaseDrawer : Grid
         await pgBottomSheet.TranslateTo(0, screenHeight + 50, 500, Easing.CubicOut);
         pgContentScroll.HeightRequest = sizeScroll;
         this.IsVisible = false;
-        if (CallBack != null)
-            CallBack.Execute(null);
     }
 
 
@@ -115,6 +115,5 @@ public partial class BaseDrawer : Grid
     public void pgBackground_Clicked(System.Object sender, System.EventArgs e)
     {
         Close();
-    }
-
+    }  
 }
