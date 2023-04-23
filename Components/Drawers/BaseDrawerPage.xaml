@@ -6,9 +6,13 @@
              Title="BaseDrawerPage">
     <ContentPage.ControlTemplate>
         <ControlTemplate>
-            <Grid BackgroundColor="Orange" TranslationY="300">
-                <ContentPresenter/>
+            <Grid>
+                <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center">
+                <ContentPresenter x:Name="pgContent"/>
+                    <Button Text="teste" Clicked="Button_Clicked" />
+                </VerticalStackLayout>
             </Grid>
         </ControlTemplate>
     </ContentPage.ControlTemplate>
+     
 </base:Popup>

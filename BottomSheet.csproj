@@ -63,9 +63,11 @@
 	<ItemGroup>
 	  <None Remove="Components\" />
 	  <None Remove="Components\Drawers\" />
+	  <None Remove="Components\Lists\" />
 	</ItemGroup>
 	<ItemGroup>
 	  <Folder Include="Components\" />
 	  <Folder Include="Components\Drawers\" />
+	  <Folder Include="Components\Lists\" />
 	</ItemGroup>
 </Project>

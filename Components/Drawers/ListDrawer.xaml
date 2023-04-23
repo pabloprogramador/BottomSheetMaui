@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<base:BaseDrawer xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:base="clr-namespace:BottomSheet.Components.Drawers"
              x:Class="BottomSheet.Components.Drawers.ListDrawer">
@@ -15,5 +15,5 @@
         <VerticalStackLayout x:Name="pgList">
         </VerticalStackLayout>
     </VerticalStackLayout>
-</base:BaseDrawer>
+</ContentView>
 

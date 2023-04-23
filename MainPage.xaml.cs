@@ -1,5 +1,6 @@
 ﻿namespace BottomSheet;
 using Components.Drawers;
+using Components.Lists;
 //using CoreGraphics;
 using Microsoft.Maui.Controls;
 
@@ -32,17 +33,17 @@ public partial class MainPage : ContentPage
 
         //MauiUIApplicationDelegate.Current.Window.RootViewController.View.AddSubview(subview);
         // await Application.Current.MainPage.Navigation.PushModalAsync(new lixoPage(),false);
-        Popup.Open(new LixoDrawer());
+        BottomSheet.Open(new SimpleList());
     }
 
     void Button_Clicked_2(System.Object sender, System.EventArgs e)
     {
-        Popup.Open(new ListDrawerPage());
+        BottomSheet.Open(drawer2);
     }
 
    async void Button_Clicked_3(System.Object sender, System.EventArgs e)
     {
-        await Application.Current.MainPage.DisplayAlert("ola","ok","ok");
+        BottomSheet.Open(drawer3);
     }
 }
 
