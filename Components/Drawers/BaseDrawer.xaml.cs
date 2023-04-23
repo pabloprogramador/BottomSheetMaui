@@ -7,7 +7,6 @@ public partial class BaseDrawer : Popup
     public BaseDrawer(DrawerView view)
     {
         InitializeComponent();
-        this.IsVisible = false;
         pgContentView.Add(view);
         view.CallBackReturn = new Command((object obj) => {
             CloseBottomSheet(obj);
@@ -40,7 +39,6 @@ public partial class BaseDrawer : Popup
     {
         pgBottomSheet.CancelAnimations();
         pgBottomSheet.TranslationY = screenHeight + 50;
-        this.IsVisible = true;
         if (isFirst) return;
 
         while (pgContentScroll.Height < 0)
@@ -79,7 +77,6 @@ public partial class BaseDrawer : Popup
         Close(obj);
         await pgBottomSheet.TranslateTo(0, screenHeight + 50, 500, Easing.CubicOut);
         pgContentScroll.HeightRequest = sizeScroll;
-        this.IsVisible = false;
     }
 
 

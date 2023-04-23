@@ -1,9 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+<base:Popup xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:base="clr-namespace:BottomSheet"
              x:Class="BottomSheet.lixoPage"
              Title="lixoPage">
-    <Grid BackgroundColor="Transparent">
+    
         <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
 
             <Label Padding="20" BackgroundColor="Yellow"
@@ -12,5 +13,5 @@
          />
             <Button Text="CLOSE" Clicked="Button_Clicked" />
         </StackLayout>
-    </Grid>
-</ContentPage>
+    
+</base:Popup>

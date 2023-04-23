@@ -21,8 +21,8 @@ public partial class MainPage : ContentPage
 
     async void Button_Clicked_1(System.Object sender, System.EventArgs e)
     {
-        
-        Drawer.Open(new SimpleList());
+        Popup.Open(new lixoPage());
+        //Drawer.Open(new SimpleList());
     }
 
     async void Button_Clicked_2(System.Object sender, System.EventArgs e)
