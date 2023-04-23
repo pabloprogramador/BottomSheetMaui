@@ -17,7 +17,6 @@
                 <Grid Margin="16,0"  x:Name="pgContent"/> 
             </ScrollView>
 
-
             <ImageButton BackgroundColor="Transparent"  HeightRequest="60" Clicked="ImageButton_Clicked">
                 <ImageButton.GestureRecognizers>
                     <PanGestureRecognizer PanUpdated="PanGestureRecognizer_PanUpdated"/>

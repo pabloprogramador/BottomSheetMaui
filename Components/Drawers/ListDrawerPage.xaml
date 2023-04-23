@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<base:BaseDrawerPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BottomSheet.Components.Drawers.ListDrawerPage"
+             xmlns:base="clr-namespace:BottomSheet.Components.Drawers"
+             Title="ListDrawerPage">
+    <Grid IsEnabled="True" IsVisible="true" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="Violet" Padding="30">
+        <StackLayout>
+
+        <Button Text="noa" IsVisible="false"/>
+        <Button Text="close"/>
+        <Label 
+            Text="PERFEICAO" FontSize="30"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+             <Label 
+            Text="PERFEICAO" FontSize="30"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+             <Label 
+            Text="PERFEICAO" FontSize="30"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+        </StackLayout>
+    </Grid>
+</base:BaseDrawerPage>
