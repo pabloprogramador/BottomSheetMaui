@@ -55,12 +55,12 @@ namespace BottomSheet
 
         public async virtual Task BeforeClose()
         {
-
+            //max delay 400
         }
 
         public async virtual Task AfterClose()
         {
-
+            
         }
 
         public static async Task<T> Open<T>(Popup page) where T : new()
@@ -101,10 +101,12 @@ namespace BottomSheet
 
                 Popup currentPage = (Popup)Application.Current.MainPage.Navigation.ModalStack.LastOrDefault();
 
-                await currentPage.BeforeClose();
+                currentPage.BeforeClose();
+                await currentPage.BackgroundBack.FadeTo(0, 400);
+
                 currentPage?.CallBackResult.TrySetResult(returnValue);
-                await currentPage.BackgroundBack.FadeTo(0, 300);
                 await Application.Current.MainPage.Navigation.PopModalAsync(false);
+
                 await currentPage.AfterClose();
             }
         }

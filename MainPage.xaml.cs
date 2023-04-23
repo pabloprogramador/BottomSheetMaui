@@ -36,14 +36,16 @@ public partial class MainPage : ContentPage
         BottomSheet.Open(new SimpleList());
     }
 
-    void Button_Clicked_2(System.Object sender, System.EventArgs e)
+    async void Button_Clicked_2(System.Object sender, System.EventArgs e)
     {
-        BottomSheet.Open(drawer2);
+       string teste = await BottomSheet.Open(drawer2);
+        System.Diagnostics.Debug.WriteLine(teste);
     }
 
    async void Button_Clicked_3(System.Object sender, System.EventArgs e)
     {
-        BottomSheet.Open(drawer3);
+        string teste = await BottomSheet.Open(drawer3);
+        System.Diagnostics.Debug.WriteLine(teste);
     }
 }
 

@@ -1,6 +1,6 @@
 ﻿namespace BottomSheet.Components.Drawers;
 
-public partial class ListDrawer : ContentView
+public partial class ListDrawer : DrawerView
 {
 	public ListDrawer(int sizeList)
 	{
@@ -12,10 +12,8 @@ public partial class ListDrawer : ContentView
 		}
 	}
 
-	
-
     void Button_Clicked(System.Object sender, System.EventArgs e)
     {
-		BottomSheet.Close();
+		CallBackReturn.Execute("teste ok..."+pgList.Count());
     }
 }

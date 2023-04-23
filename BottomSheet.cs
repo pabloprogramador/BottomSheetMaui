@@ -5,12 +5,12 @@ namespace BottomSheet
 {
     class BottomSheet
     {
-        public static Task<T> Open<T>(View view) where T : new()
+        public static Task<T> Open<T>(DrawerView view) where T : new()
         {
             return Popup.Open<T>(new Drawer(view));
         }
 
-        public static Task<string> Open(View view)
+        public static Task<string> Open(DrawerView view)
         {
             return Popup.Open(new Drawer(view));
         }
