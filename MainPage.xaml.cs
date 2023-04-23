@@ -21,30 +21,19 @@ public partial class MainPage : ContentPage
 
     async void Button_Clicked_1(System.Object sender, System.EventArgs e)
     {
-        //Drawer.Open(drawer1);
-        //Drawer.Open(drawer2);
-        //var contentView = new lixo();
-        //var subview = new UIKit.UIView()
-        //{
-        //    Frame = new CGRect(0, 0, DeviceDisplay.MainDisplayInfo.Width, DeviceDisplay.MainDisplayInfo.Height),
-        //    BackgroundColor = UIKit.UIColor.Red
-        //};
-        //subview.AddSubview(contentView.Content.  ToNative(MauiUIApplicationDelegate.Current));
-
-        //MauiUIApplicationDelegate.Current.Window.RootViewController.View.AddSubview(subview);
-        // await Application.Current.MainPage.Navigation.PushModalAsync(new lixoPage(),false);
-        BottomSheet.Open(new SimpleList());
+        
+        Drawer.Open(new SimpleList());
     }
 
     async void Button_Clicked_2(System.Object sender, System.EventArgs e)
     {
-       string teste = await BottomSheet.Open(drawer2);
+       string teste = await Drawer.Open(drawer2);
         System.Diagnostics.Debug.WriteLine(teste);
     }
 
    async void Button_Clicked_3(System.Object sender, System.EventArgs e)
     {
-        string teste = await BottomSheet.Open(drawer3);
+        string teste = await Drawer.Open(drawer3);
         System.Diagnostics.Debug.WriteLine(teste);
     }
 }
