@@ -4,9 +4,9 @@ using BottomSheet.Components.Drawers;
 namespace BottomSheet
 {
 
-    public class BottomSheet : ContentPage
+    public class Popup : ContentPage
     {
-        public BottomSheet()
+        public Popup()
         {
             this.BackgroundColor = Color.FromArgb("#01000000");
         }
@@ -54,7 +54,7 @@ namespace BottomSheet
 
         }
 
-        public static async Task<T> Open<T>(BottomSheet page) where T : new()
+        public static async Task<T> Open<T>(Popup page) where T : new()
         {
             try
             {
@@ -69,7 +69,7 @@ namespace BottomSheet
             }
         }
 
-        public static async Task<string> Open(BottomSheet page)
+        public static async Task<string> Open(Popup page)
         {
             try
             {
@@ -90,7 +90,7 @@ namespace BottomSheet
             if (Application.Current?.MainPage != null && Application.Current.MainPage.Navigation.ModalStack.Count > 0)
             {
                 
-                BottomSheet currentPage = (BottomSheet)Application.Current.MainPage.Navigation.ModalStack.LastOrDefault();
+                Popup currentPage = (Popup)Application.Current.MainPage.Navigation.ModalStack.LastOrDefault();
 
                 await currentPage.BeforeClose();
 

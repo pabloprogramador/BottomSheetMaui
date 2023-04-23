@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace BottomSheet.Components.Drawers;
 
-public partial class BaseDrawerPage : BottomSheet
+public partial class BaseDrawerPage : Popup
 {
 
     public TaskCompletionSource<object> returnResultTask = new();

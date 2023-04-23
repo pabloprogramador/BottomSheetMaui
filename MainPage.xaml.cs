@@ -32,12 +32,12 @@ public partial class MainPage : ContentPage
 
         //MauiUIApplicationDelegate.Current.Window.RootViewController.View.AddSubview(subview);
         // await Application.Current.MainPage.Navigation.PushModalAsync(new lixoPage(),false);
-        BottomSheet.Open(new LixoDrawer());
+        Popup.Open(new LixoDrawer());
     }
 
     void Button_Clicked_2(System.Object sender, System.EventArgs e)
     {
-        BottomSheet.Open(new ListDrawerPage());
+        Popup.Open(new ListDrawerPage());
     }
 
     void Button_Clicked_3(System.Object sender, System.EventArgs e)

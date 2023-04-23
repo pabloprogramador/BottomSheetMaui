@@ -1,7 +1,7 @@
 ﻿using System;
 namespace BottomSheet.Components.Drawers
 {
-	public class LixoDrawer : BottomSheet
+	public class LixoDrawer : Popup
 	{
 		public LixoDrawer()
 		{
