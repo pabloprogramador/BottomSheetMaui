@@ -10,7 +10,16 @@ namespace BottomSheet.Components.Drawers
 			grid.HeightRequest = 200;
 			grid.WidthRequest = 200;
 			Content = grid;
+			
+
+        }
+
+		public override Task BeforeClose()
+		{
+			return App.Current.MainPage.DisplayAlert("aa", "adf", "adf");
 		}
+
+
 	}
 }
 

@@ -44,12 +44,12 @@ namespace BottomSheet
             return true;
         }
 
-        public virtual async Task BeforeClose()
+        public async virtual Task BeforeClose()
         {
-
+            
         }
 
-        public virtual async Task AfterClose()
+        public async virtual Task AfterClose()
         {
 
         }

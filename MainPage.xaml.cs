@@ -40,9 +40,9 @@ public partial class MainPage : ContentPage
         Popup.Open(new ListDrawerPage());
     }
 
-    void Button_Clicked_3(System.Object sender, System.EventArgs e)
+   async void Button_Clicked_3(System.Object sender, System.EventArgs e)
     {
-        Drawer.Open(drawer3);
+        await Application.Current.MainPage.DisplayAlert("ola","ok","ok");
     }
 }
 
