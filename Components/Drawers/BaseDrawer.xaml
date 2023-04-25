@@ -5,27 +5,27 @@
              x:Class="BottomSheet.Components.Drawers.BaseDrawer"
              Title="Drawer">
     <Grid x:Name="pgRoot">
-       
-    <ImageButton BackgroundColor="Transparent" Clicked="pgBackground_Clicked"/>
 
-    <Grid x:Name="pgBottomSheet">
-        <Border x:Name="pgBottomSheetBorder" Stroke="White" BackgroundColor="White" StrokeShape="RoundRectangle 24,24,0,0" Padding="0,16">
-        </Border>
-        <Grid RowDefinitions="32,*">
+        <ImageButton BackgroundColor="Transparent" Clicked="pgBackground_Clicked"/>
 
-            <Rectangle WidthRequest="40" HeightRequest="4" BackgroundColor="#E8E8E8"/>
-            
-            <ScrollView x:Name="pgContentScroll" Grid.Row="1" VerticalOptions="Start">
-                <Grid Margin="16,0"  x:Name="pgContentView"/> 
-            </ScrollView>
+        <Grid x:Name="pgBottomSheet">
+            <Border x:Name="pgBottomSheetBorder" Stroke="White" BackgroundColor="White" StrokeShape="RoundRectangle 24,24,0,0" Padding="0,16">
+            </Border>
+            <Grid RowDefinitions="32,*">
 
-            <ImageButton BackgroundColor="Transparent"  HeightRequest="60" Clicked="ImageButton_Clicked">
-                <ImageButton.GestureRecognizers>
-                    <PanGestureRecognizer PanUpdated="PanGestureRecognizer_PanUpdated"/>
-                </ImageButton.GestureRecognizers>
-            </ImageButton>
+                <Rectangle WidthRequest="40" HeightRequest="4" BackgroundColor="#E8E8E8"/>
 
+                <ScrollView x:Name="pgContentScroll" Grid.Row="1" VerticalOptions="Start">
+                    <Grid Margin="16,0"  x:Name="pgContentView"/>
+                </ScrollView>
+
+                <ImageButton x:Name="pgPanGesture" BackgroundColor="Transparent" TranslationY="0"  HeightRequest="60" >
+                    <ImageButton.GestureRecognizers>
+                        <PanGestureRecognizer PanUpdated="PanGestureRecognizer_PanUpdated"/>
+                    </ImageButton.GestureRecognizers>
+                </ImageButton>
+
+            </Grid>
         </Grid>
-    </Grid>
     </Grid>
 </popup:Popup>

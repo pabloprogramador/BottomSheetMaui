@@ -1,4 +1,5 @@
-﻿using Microsoft.Maui.Controls.Shapes;
+﻿using AndroidX.ConstraintLayout.Core;
+using Microsoft.Maui.Controls.Shapes;
 
 namespace BottomSheet.Components.Drawers;
 
@@ -21,6 +22,7 @@ public partial class BaseDrawer : Popup
     double screenWidth;
     double screenHeight;
     double y;
+    double ypan;
     double headHeight = 280;
     double minFree = 70;
     bool isFull = false;
@@ -59,6 +61,7 @@ public partial class BaseDrawer : Popup
         }
 
         y = baseY;
+        ypan = 0;
         pgBottomSheet.TranslateTo(0, baseY, 500, Easing.CubicOut);
         await Task.Delay(300);
         ChangeBorder(baseY == 0);
@@ -74,40 +77,44 @@ public partial class BaseDrawer : Popup
     }
 
 
-    public void ImageButton_Clicked(System.Object sender, System.EventArgs e)
-    {
-        //Open();
-    }
     private double startedY = 0;
     public async void PanGestureRecognizer_PanUpdated(System.Object sender, Microsoft.Maui.Controls.PanUpdatedEventArgs e)
     {
         if (pgBottomSheet.AnimationIsRunning("TranslateTo")) return;
-        //double StartedY = 0;
 
         switch (e.StatusType)
         {
             case GestureStatus.Started:
+                // pgPanGesture.HeightRequest = screenHeight * 2;
+                //pgPanGesture.TranslationY = 0;
+                pgBottomSheet.CancelAnimations();
                 startedY = pgBottomSheet.TranslationY;
                 break;
 
             case GestureStatus.Running:
-                pgBottomSheet.TranslationY = Math.Max(y + e.TotalY, 0);
+                System.Diagnostics.Debug.WriteLine(y +" :: "+e.TotalY+" :: "+e.GestureId);
+                double aux = Math.Max(y + e.TotalY, 0);
+                pgBottomSheet.TranslationY = aux;
+                pgPanGesture.TranslationY = ypan - e.TotalY;
                 ChangeBorder(pgBottomSheet.TranslationY == 0);
                 break;
 
             case GestureStatus.Completed:
-
+                //pgPanGesture.TranslationY = -400;
+                pgPanGesture.TranslationY = ypan =  0;
                 if (startedY == 0 && baseY > 0)
                 {
                     if (pgBottomSheet.TranslationY - startedY < minFree)
                     {
                         pgBottomSheet.TranslateTo(0, 0, 100, Easing.CubicOut);
                         ChangeBorder(true);
+                        y = 0;
                     }
                     else
                     {
                         await pgBottomSheet.TranslateTo(0, baseY, 300, Easing.CubicOut);
                         ChangeBorder(baseY == 0);
+                        y = baseY;
                     }
                 }
                 else
@@ -118,6 +125,7 @@ public partial class BaseDrawer : Popup
                         {
                             pgBottomSheet.TranslateTo(0, 0, 100, Easing.CubicOut);
                             ChangeBorder(true);
+                            y = 0;
                         }
                         else
                         {
@@ -129,17 +137,26 @@ public partial class BaseDrawer : Popup
                         if (pgBottomSheet.TranslationY - baseY + (minFree * 2) < minFree)
                         {
                             pgBottomSheet.TranslateTo(0, 0, 300, Easing.CubicOut);
-                            await Task.Delay(300);
+                            await Task.Delay(100);
                             ChangeBorder(true);
+                            y = 0;
                         }
                         else
                         {
-                            await pgBottomSheet.TranslateTo(0, baseY, 300, Easing.CubicOut);
-                            ChangeBorder(baseY == 0);
+
+                            if (pgBottomSheet.TranslationY > baseY && Math.Abs(pgBottomSheet.TranslationY - baseY) > minFree)
+                            {
+                                await CloseBottomSheet();
+                            }
+                            else
+                            {
+                                await pgBottomSheet.TranslateTo(0, baseY, 100, Easing.CubicOut);
+                                ChangeBorder(baseY == 0);
+                                y = baseY;
+                            }
                         }
                     }
                 }
-                y = pgBottomSheet.TranslationY;
                 break;
         }
     }
@@ -166,5 +183,15 @@ public partial class BaseDrawer : Popup
                 CornerRadius = new CornerRadius(24, 24, 0, 0)
             };
         }
+    }
+
+    void ImageButton_Clicked(System.Object sender, System.EventArgs e)
+    {
+        pgPanGesture.IsVisible = false;
+    }
+
+    void TapGestureRecognizer_Tapped(System.Object sender, Microsoft.Maui.Controls.TappedEventArgs e)
+    {
+        pgPanGesture.IsVisible = true;
     }
 }
