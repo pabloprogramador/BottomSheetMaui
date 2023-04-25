@@ -85,8 +85,6 @@ public partial class BaseDrawer : Popup
         switch (e.StatusType)
         {
             case GestureStatus.Started:
-                // pgPanGesture.HeightRequest = screenHeight * 2;
-                //pgPanGesture.TranslationY = 0;
                 pgBottomSheet.CancelAnimations();
                 startedY = pgBottomSheet.TranslationY;
                 break;
@@ -100,7 +98,6 @@ public partial class BaseDrawer : Popup
                 break;
 
             case GestureStatus.Completed:
-                //pgPanGesture.TranslationY = -400;
                 pgPanGesture.TranslationY = ypan =  0;
                 if (startedY == 0 && baseY > 0)
                 {
@@ -163,7 +160,7 @@ public partial class BaseDrawer : Popup
 
     public void pgBackground_Clicked(System.Object sender, System.EventArgs e)
     {
-        CloseBottomSheet();
+       CloseBottomSheet();
     }
 
     private void ChangeBorder(bool isZero)
@@ -185,13 +182,4 @@ public partial class BaseDrawer : Popup
         }
     }
 
-    void ImageButton_Clicked(System.Object sender, System.EventArgs e)
-    {
-        pgPanGesture.IsVisible = false;
-    }
-
-    void TapGestureRecognizer_Tapped(System.Object sender, Microsoft.Maui.Controls.TappedEventArgs e)
-    {
-        pgPanGesture.IsVisible = true;
-    }
 }

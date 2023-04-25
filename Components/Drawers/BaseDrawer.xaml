@@ -19,7 +19,7 @@
                     <Grid Margin="16,0"  x:Name="pgContentView"/>
                 </ScrollView>
 
-                <ImageButton x:Name="pgPanGesture" BackgroundColor="Transparent" TranslationY="0"  HeightRequest="60" >
+                <ImageButton x:Name="pgPanGesture" BackgroundColor="Transparent" TranslationY="0"  HeightRequest="100" >
                     <ImageButton.GestureRecognizers>
                         <PanGestureRecognizer PanUpdated="PanGestureRecognizer_PanUpdated"/>
                     </ImageButton.GestureRecognizers>
