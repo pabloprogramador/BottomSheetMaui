@@ -9,6 +9,7 @@
         <ImageButton BackgroundColor="Transparent" Clicked="pgBackground_Clicked"/>
 
         <Grid x:Name="pgBottomSheet">
+            <ImageButton BackgroundColor="Transparent" />
             <Border x:Name="pgBottomSheetBorder" Stroke="White" BackgroundColor="White" StrokeShape="RoundRectangle 24,24,0,0" Padding="0,16">
             </Border>
             <Grid RowDefinitions="32,*">

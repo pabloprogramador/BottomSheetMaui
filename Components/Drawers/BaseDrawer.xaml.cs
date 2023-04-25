@@ -90,7 +90,7 @@ public partial class BaseDrawer : Popup
                 break;
 
             case GestureStatus.Running:
-                System.Diagnostics.Debug.WriteLine(y +" :: "+e.TotalY+" :: "+e.GestureId);
+                //System.Diagnostics.Debug.WriteLine(y +" :: "+e.TotalY+" :: "+e.GestureId);
                 double aux = Math.Max(y + e.TotalY, 0);
                 pgBottomSheet.TranslationY = aux;
                 pgPanGesture.TranslationY = ypan - e.TotalY;
