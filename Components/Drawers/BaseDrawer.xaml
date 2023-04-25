@@ -4,7 +4,7 @@
              xmlns:popup="clr-namespace:BottomSheet"
              x:Class="BottomSheet.Components.Drawers.BaseDrawer"
              Title="Drawer">
-    <Grid>
+    <Grid x:Name="pgRoot">
        
     <ImageButton BackgroundColor="Transparent" Clicked="pgBackground_Clicked"/>
 

@@ -6,23 +6,22 @@ namespace BottomSheet
 
     public class Popup : ContentPage
     {
+        private ImageButton BackgroundBack;
+        private static bool isBusy;
+
         public Popup()
         {
             this.BackgroundColor = Color.FromArgb("#01000000");
         }
 
-        private ImageButton BackgroundBack;
-
         protected override void OnAppearing()
         {
             base.OnAppearing();
             BackgroundBack.FadeTo(.4, 500);
-
         }
 
         protected override void OnParentChanged()
         {
-
             base.OnParentChanged();
             var cache = this.Content;
             BackgroundBack = new ImageButton() { BackgroundColor = Colors.Black, Opacity = 0 };
@@ -65,6 +64,7 @@ namespace BottomSheet
 
         public static async Task<T> Open<T>(Popup page) where T : new()
         {
+            if (isBusy) return default(T); isBusy = true;
             try
             {
                 if (Application.Current?.MainPage != null)
@@ -74,12 +74,14 @@ namespace BottomSheet
             }
             catch (Exception ex)
             {
+                isBusy = false;
                 return default(T);
             }
         }
 
         public static async Task<string> Open(Popup page)
         {
+            if (isBusy) return null; isBusy = true;
             try
             {
                 if (Application.Current?.MainPage != null)
@@ -89,6 +91,7 @@ namespace BottomSheet
             }
             catch (Exception ex)
             {
+                isBusy = false;
                 return "";
             }
 
@@ -108,6 +111,7 @@ namespace BottomSheet
                 await Application.Current.MainPage.Navigation.PopModalAsync(false);
 
                 await currentPage.AfterClose();
+                isBusy = false;
             }
         }
     }
