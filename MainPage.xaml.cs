@@ -19,10 +19,14 @@ public partial class MainPage : ContentPage
         InitializeComponent();
     }
 
+   async void Button_Clicked(System.Object sender, System.EventArgs e)
+    {
+        await Popup.Open(new SamplePopup());
+    }
+
     async void Button_Clicked_1(System.Object sender, System.EventArgs e)
     {
-        //Popup.Open(new lixoPage());
-        Drawer.Open(new SimpleList());
+       await Drawer.Open(new SimpleList());
     }
 
     async void Button_Clicked_2(System.Object sender, System.EventArgs e)
@@ -36,6 +40,12 @@ public partial class MainPage : ContentPage
         string teste = await Drawer.Open(drawer3);
         System.Diagnostics.Debug.WriteLine(teste);
     }
+
+   async void Button_Clicked_4(System.Object sender, System.EventArgs e)
+    {
+        await Popup.Open(new LoadingPage());
+    }
+
 }
 
 

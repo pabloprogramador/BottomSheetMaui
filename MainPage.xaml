@@ -10,23 +10,32 @@
             Padding="30,0"
             VerticalOptions="Center">
 
-                <Image
-                Source="dotnet_bot.png"
-                SemanticProperties.Description="Cute dot net bot waving hi to you!"
-                HeightRequest="200"
-                HorizontalOptions="Center" />
-
-                <Label
-                Text="Hello, World!"
+                <Label Padding="20" BackgroundColor="Yellow" TextColor="Blue"
+                Text="POPUP AND BOTTOMSHEET" HorizontalTextAlignment="Center"
                 SemanticProperties.HeadingLevel="Level1"
                 FontSize="32"
                 HorizontalOptions="Center" />
 
-                <Label
-                Text="Welcome to .NET Multi-platform App UI"
-                SemanticProperties.HeadingLevel="Level2"
-                SemanticProperties.Description="Welcome to dot net Multi platform App U I"
-                FontSize="18"
+                <Image
+                Source="dotnet_bot.png"
+                SemanticProperties.Description="Cute dot net bot waving hi to you!"
+                HeightRequest="100"
+                HorizontalOptions="Center" />
+
+                 <Label Padding="2" BackgroundColor="LightYellow" TextColor="Black"
+                Text="github/pabloprogramador" HorizontalTextAlignment="Center"
+                SemanticProperties.HeadingLevel="Level1"
+                FontSize="14"
+                HorizontalOptions="Center" />
+
+                  <Button
+                Text="OPEN POPUP"
+                Clicked="Button_Clicked"
+                HorizontalOptions="Center" />
+
+                <Button
+                Text="OPEN LOADING..."
+                Clicked="Button_Clicked_4"
                 HorizontalOptions="Center" />
 
                 <Button
@@ -46,8 +55,6 @@
 
             </VerticalStackLayout>
         </ScrollView>
-
-       
 
     </Grid>
 </ContentPage>

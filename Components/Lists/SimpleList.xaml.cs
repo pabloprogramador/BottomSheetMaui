@@ -1,6 +1,6 @@
 ﻿namespace BottomSheet.Components.Lists;
 
-public partial class SimpleList : Drawers.DrawerView
+public partial class SimpleList : DrawerView
 {
 	public SimpleList()
 	{

@@ -20,5 +20,14 @@ namespace BottomSheet
             return Popup.Close(returnValue);
         }
     }
+
+    public class DrawerView : ContentView
+    {
+        public Command CallBackReturn;
+
+        public DrawerView()
+        {
+        }
+    }
 }
 

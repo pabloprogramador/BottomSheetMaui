@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<base:Popup xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:base="clr-namespace:BottomSheet"
+             x:Class="BottomSheet.SamplePopup"
+             Title="SamplePopup">
+    <Grid VerticalOptions="Center" HorizontalOptions="Center">
+        <StackLayout x:Name="pgRoot" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="Yellow" Padding="20" Spacing="20">
+
+            <Label Padding="20" FontAttributes="Bold"
+               FontSize="20"
+            Text="POPUP !"
+         />
+                 <Label
+                Text=".NET Multi-platform App UI"
+                SemanticProperties.HeadingLevel="Level2"
+                SemanticProperties.Description="Welcome to dot net Multi platform App U I"
+                FontSize="18"
+                HorizontalOptions="Center" />
+            <Button Text="CLOSE" Clicked="Button_Clicked" />
+        </StackLayout>
+    </Grid>
+</base:Popup>

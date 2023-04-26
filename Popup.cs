@@ -52,6 +52,16 @@ namespace BottomSheet
             return true;
         }
 
+        public async virtual Task BeforeOpen()
+        {
+            //max delay 500
+        }
+
+        public async virtual Task AfterOpen()
+        {
+            
+        }
+
         public async virtual Task BeforeClose()
         {
             //max delay 400
@@ -59,7 +69,7 @@ namespace BottomSheet
 
         public async virtual Task AfterClose()
         {
-            
+
         }
 
         public static async Task<T> Open<T>(Popup page) where T : new()
@@ -68,7 +78,11 @@ namespace BottomSheet
             try
             {
                 if (Application.Current?.MainPage != null)
+                {
+                    await page.BeforeOpen();
                     await Application.Current.MainPage.Navigation.PushModalAsync(page, false);
+                    await page.AfterOpen();
+                }
 
                 return (T)await page.CallBackResult.Task;
             }
@@ -85,7 +99,11 @@ namespace BottomSheet
             try
             {
                 if (Application.Current?.MainPage != null)
+                {
+                    await page.BeforeOpen();
                     await Application.Current.MainPage.Navigation.PushModalAsync(page, false);
+                    await page.AfterOpen();
+                }
 
                 return (string)await page.CallBackResult.Task;
             }
@@ -104,7 +122,7 @@ namespace BottomSheet
 
                 Popup currentPage = (Popup)Application.Current.MainPage.Navigation.ModalStack.LastOrDefault();
 
-                currentPage.BeforeClose();
+                await currentPage.BeforeClose();
                 await currentPage.BackgroundBack.FadeTo(0, 400);
 
                 currentPage?.CallBackResult.TrySetResult(returnValue);

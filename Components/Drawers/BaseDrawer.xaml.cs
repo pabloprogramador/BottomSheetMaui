@@ -1,5 +1,4 @@
-﻿using AndroidX.ConstraintLayout.Core;
-using Microsoft.Maui.Controls.Shapes;
+﻿using Microsoft.Maui.Controls.Shapes;
 
 namespace BottomSheet.Components.Drawers;
 
