@@ -87,3 +87,6 @@ And make all kinds of pages that open on top of pages:
 
 
 ### And it also has an anti typing monkey block, that is, consecutive clicks that break or duplicate a popup on top of the other
+
+<img src="https://raw.githubusercontent.com/pabloprogramador/BottomSheetMaui/main/Images/monkey.png" height="160">
+
