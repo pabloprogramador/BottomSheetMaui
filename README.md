@@ -1,7 +1,7 @@
 # Popup and BottomSheet Maui
 
 Two very practical and easy to use components, a main component called Popup and another BottomSheet called Drawer that uses the system of the first one, a good integration that will make it easier to implement any element you want to add on the page.
-- **Only 1 file**
+- **1 file**
 - **No Plugins**
 - **No Renders ou Handlers**
 
