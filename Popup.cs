@@ -6,6 +6,7 @@ namespace BottomSheet
 
     public class Popup : ContentPage
     {
+        public bool IsFadeBackground = true;
         private ImageButton BackgroundBack;
         private static bool isBusy;
 
@@ -17,6 +18,7 @@ namespace BottomSheet
         protected override void OnAppearing()
         {
             base.OnAppearing();
+            if(IsFadeBackground)
             BackgroundBack.FadeTo(.4, 500);
         }
 
@@ -123,7 +125,8 @@ namespace BottomSheet
                 Popup currentPage = (Popup)Application.Current.MainPage.Navigation.ModalStack.LastOrDefault();
 
                 await currentPage.BeforeClose();
-                await currentPage.BackgroundBack.FadeTo(0, 400);
+                if (currentPage.IsFadeBackground)
+                    await currentPage.BackgroundBack.FadeTo(0, 400);
 
                 currentPage?.CallBackResult.TrySetResult(returnValue);
                 await Application.Current.MainPage.Navigation.PopModalAsync(false);
