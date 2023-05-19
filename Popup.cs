@@ -26,7 +26,9 @@ namespace BottomSheet
         {
             base.OnParentChanged();
             var cache = this.Content;
-            BackgroundBack = new ImageButton() { BackgroundColor = Colors.Black, Opacity = 0 };
+             BackgroundBack = new ImageButton() {
+                BackgroundColor = IsFadeBackground ? Colors.Transparent : Colors.Black,
+                Opacity = IsFadeBackground ? 1 : 0 };
             var bugdroid = new TapGestureRecognizer();
             cache.GestureRecognizers.Add(bugdroid);
 
